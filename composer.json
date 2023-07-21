@@ -1,0 +1,27 @@
+{
+    "name": "axguowen/think-sessionx",
+    "description": "Native session package for ThinkPHP",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "axguowen",
+            "email": "axguowen@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.5",
+        "topthink/framework": "^6.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "think\\": "src"
+        }
+    },
+    "extra": {
+        "think": {
+            "services": [
+                "think\\sessionx\\Service"
+            ]
+        }
+    }
+}
