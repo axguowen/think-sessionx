@@ -39,6 +39,4 @@ Session::clear();
 
 ~~~
 
-### 注意
-
-原生SESSION操作不支持数组
+使用方法和ThinkPHP自带的SESSION无任何区别

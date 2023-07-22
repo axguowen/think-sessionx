@@ -11,6 +11,8 @@
 
 namespace think\sessionx;
 
+use think\helper\Arr;
+
 class Native
 {
     /**
@@ -117,7 +119,7 @@ class Native
      */
     public function set(string $name, $value): void
     {
-        $_SESSION[$name] = $value;
+        Arr::set($_SESSION, $name, $value);
     }
 
     /**
@@ -129,11 +131,7 @@ class Native
      */
     public function get(string $name, $default = null)
     {
-        // 如果session不存在
-        if(!isset($_SESSION[$name])){
-            return $default;
-        }
-        return $_SESSION[$name];
+        return Arr::get($_SESSION, $name, $default);
     }
 
     /**
@@ -144,16 +142,7 @@ class Native
      */
     public function pull(string $name)
     {
-        // 如果session不存在
-        if(!isset($_SESSION[$name])){
-            return null;
-        }
-        // 获取session
-        $value = $_SESSION[$name];
-        // 删除
-        unset($_SESSION[$name]);
-        // 返回
-        return $value;
+        return Arr::pull($_SESSION, $name);
     }
 
     /**
@@ -164,7 +153,7 @@ class Native
      */
     public function has(string $name): bool
     {
-        return isset($_SESSION[$name]);
+        return Arr::has($_SESSION, $name);
     }
 
     /**
@@ -175,8 +164,7 @@ class Native
      */
     public function delete(string $name): void
     {
-        // 删除
-        unset($_SESSION[$name]);
+        Arr::forget($_SESSION, $name);
     }
 
     /**
